@@ -15,9 +15,10 @@ import {
   DialogContent,
   DialogTitle,
   Checkbox,
-  CircularProgress,
   Snackbar,
   Alert,
+  CircularProgress,
+  Box,
 } from "@mui/material";
 import { Edit, Delete } from "@mui/icons-material";
 
@@ -184,9 +185,19 @@ const UserManagement = () => {
         新增人员
       </Button>
 
-      {loading ? <CircularProgress /> : null}
+       {/* 居中加载指示器 */}
+       {loading && (
+        <Box sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}>
+          <CircularProgress/>
+        </Box>
+      )}
 
-      <TableContainer component={Paper} sx={{ mt: 2 }}>
+      {!loading&&<TableContainer component={Paper} sx={{ mt: 2 }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -214,7 +225,7 @@ const UserManagement = () => {
               ))}
           </TableBody>
         </Table>
-      </TableContainer>
+      </TableContainer>}
 
       {/* 用户编辑/新增对话框 */}
       <Dialog open={openDialog} onClose={handleCloseDialog}>
@@ -249,7 +260,7 @@ const UserManagement = () => {
         <DialogActions>
           <Button onClick={handleCloseDialog}>取消</Button>
           <Button onClick={handleSaveUser} color="primary">
-            {loading ? <CircularProgress size={24} /> : "保存"}
+            保存
           </Button>
         </DialogActions>
       </Dialog>
@@ -268,6 +279,7 @@ const UserManagement = () => {
           {successMessage || errorMessage}
         </Alert>
       </Snackbar>
+
     </div>
   );
 };
