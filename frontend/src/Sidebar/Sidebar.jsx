@@ -60,8 +60,8 @@ export default function Sidebar() {
         <ListItem
           button
           component={Link}
-          to="/personnelManagement"
-          className={isSelected("/personnelManagement") ? "selectedItem" : null} // 选中状态
+          to="/userManagement"
+          className={isSelected("/userManagement") ? "selectedItem" : null} // 选中状态
         >
           <ListItemIcon>
             <PeopleIcon />

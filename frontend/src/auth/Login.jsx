@@ -70,9 +70,22 @@ const Login = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, mx: "auto", mt: 4 }}>
+    <Box
+      sx={{
+        position: "absolute",
+        top: "30%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        maxWidth: 400,
+        width: "100%",
+        p: 4,
+        bgcolor: "background.paper",
+        boxShadow: 3,
+        borderRadius: 2,
+      }}
+    >
       {/* 大标题 */}
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h6" align="center" gutterBottom>
         React 内容管理系统
       </Typography>
 
@@ -136,7 +149,7 @@ const Login = () => {
           <Box mt={2} textAlign="center">
             <Typography variant="body1">
               还没有账户？
-              <Link to="/register" style={{ marginLeft: 5 }}>
+              <Link to="/register" style={{ marginLeft: 5, color:"blue"}}>
                 注册
               </Link>
             </Typography>

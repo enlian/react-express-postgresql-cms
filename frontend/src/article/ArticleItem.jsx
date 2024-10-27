@@ -20,7 +20,7 @@ import {
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CategorySelector } from "./CategorySelector"; // 导入抽出的CategorySelector组件
-import validateCoverUrl from "./../common/utils.js"
+import validateCoverUrl from "../Sidebar/utils.js"
 
 export function ArticleItem({ article }) {
   const [isEditing, setIsEditing] = useState(false);

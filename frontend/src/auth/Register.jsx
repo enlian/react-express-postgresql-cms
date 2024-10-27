@@ -110,8 +110,20 @@ const Register = () => {
   const handleClickShowPassword = () => setShowPassword(!showPassword);
 
   return (
-    <Container maxWidth="sm">
-      <Box mt={5}>
+    <Container
+      maxWidth="sm"
+      sx={{
+        position: "absolute",
+        top: "35%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        bgcolor: "background.paper",
+        boxShadow: 3,
+        borderRadius: 2,
+        p: 4,
+      }}
+    >
+      <Box>
         <Typography variant="h4" align="center" gutterBottom>
           注册
         </Typography>

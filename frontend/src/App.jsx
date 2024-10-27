@@ -9,15 +9,26 @@ import ArticleManagement from "./article/ArticleManagement";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import { AuthProvider, AuthContext } from "./contexts/AuthContext";
-import { CategoriesProvider, CategoriesContext } from "./contexts/CategoriesContext";
-import Sidebar from "./common/Sidebar";
+import {
+  CategoriesProvider,
+  CategoriesContext,
+} from "./contexts/CategoriesContext";
+import Sidebar from "./Sidebar/Sidebar";
 import CategoryManagement from "./Category/CategoryManagement";
 import { CircularProgress, Box } from "@mui/material"; // 引入 Material-UI 的加载组件
 import "./../src/assets/App.css"; // 引入CSS文件
+import UserManagement from "./User/UserManagement";
 
 // 鉴权过程中显示加载的组件
 const Loading = () => (
-  <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+    }}
+  >
     <CircularProgress />
   </Box>
 );
@@ -43,7 +54,11 @@ const CategoriesRoutes = () => {
   return (
     <Routes>
       {categories.map((category) => (
-        <Route key={category.id} path={category.link} element={<div>{category.name}</div>} />
+        <Route
+          key={category.id}
+          path={category.link}
+          element={<div>{category.name}</div>}
+        />
       ))}
     </Routes>
   );
@@ -103,6 +118,16 @@ function MainApp() {
               </PrivateRoute>
             }
           />
+
+          <Route
+            path="/userManagement"
+            element={
+              <PrivateRoute>
+                <UserManagement />
+              </PrivateRoute>
+            }
+          />
+
           <Route path="*" element={<CategoriesRoutes />} />
         </Routes>
       </div>

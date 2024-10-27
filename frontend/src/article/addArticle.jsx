@@ -16,7 +16,7 @@ import {
   Alert,
   FormControl,
 } from "@mui/material";
-import validateCoverUrl from "../common/utils.js";
+import validateCoverUrl from "../Sidebar/utils.js";
 
 export default function AddArticle() {
   const [open, setOpen] = useState(false); // 控制弹窗打开状态

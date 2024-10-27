@@ -7,9 +7,9 @@ const cors = require("cors");
 
 //routers
 const categoryRoutes = require('./routes/categoryRoutes');
-const indexRouter = require("./routes/index");
 const apiRoutes = require('./routes/apiRoutes'); // 导入 apiRoutes
 const articlesRouter = require('./routes/articlesRouter');
+const userRoutes = require('./routes/userRoutes');
 
 
 const {testConnection} = require("./dbConfig"); // 引入数据库配置
@@ -36,8 +36,7 @@ app.use(express.urlencoded({ extended: false })); // 解析 URL 编码格式的�
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/api", [apiRoutes,categoryRoutes,articlesRouter]);
+app.use("/api", [apiRoutes,categoryRoutes,articlesRouter,userRoutes]);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

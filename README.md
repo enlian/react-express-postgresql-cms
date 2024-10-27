@@ -10,6 +10,8 @@
 <img src="./frontend/screenshot/2.png" width="400"/><br/><br/>
 <img src="./frontend/screenshot/3.png" width="400"/><br/><br/>
 <img src="./frontend/screenshot/4.png" width="400"/><br/><br/>
+<img src="./frontend/screenshot/5.png" width="400"/><br/><br/>
+<img src="./frontend/screenshot/6.png" width="400"/><br/><br/>
 
 ### 技術スタック
 

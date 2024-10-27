@@ -1,7 +1,5 @@
 // models/User.js
 const { Sequelize, DataTypes } = require('sequelize');
-const pool = require('../dbConfig'); // 引入数据库配置
-
 const sequelize = new Sequelize(process.env.POSTGRES_URL); // 使用环境变量连接数据库
 
 let User;
@@ -9,9 +7,9 @@ let User;
 if (!sequelize.models.User) {
     User = sequelize.define('User', {
         id: {
-            type: DataTypes.INTEGER, // 更改为整数类型
-            autoIncrement: true, // 设置为自增
-            primaryKey: true, // 设为主键
+            type: DataTypes.INTEGER, 
+            autoIncrement: true, 
+            primaryKey: true, 
         },
         name: {
             type: DataTypes.STRING,
@@ -26,8 +24,17 @@ if (!sequelize.models.User) {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        // 新增权限字段
+        permissions: {
+            type: DataTypes.JSON, // 使用 JSON 字段来存储权限信息
+            allowNull: false,
+            defaultValue: {
+                articleManagement: false,
+                categoryManagement: false,
+            },
+        },
     }, {
-        timestamps: false, // 关闭自动创建 createdAt 和 updatedAt 字段
+        timestamps: false, 
         tableName: 'users' // 自定义表名为小写
     });
 
