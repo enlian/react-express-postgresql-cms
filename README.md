@@ -2,7 +2,7 @@
 
 このプロジェクトは、Reactをフロントエンドに、Expressをバックエンドに使用したコンテンツ管理システム（CMS）です。データベースにはPostgreSQLを使用しており、セキュアな認証にはJWT (JSON Web Token) を導入しています。管理者およびユーザーの役割を区別したアクセス制御、記事の作成・編集・削除など、コンテンツ管理の基本機能を提供しています。
 
-- **Demo:**<a href="https://react-express-postgresql-cms.vercel.app/">react-express-postgresql-cms.vercel.app</a>
+- **Demo：** <a href="https://react-express-postgresql-cms.vercel.app/">react-express-postgresql-cms.vercel.app</a>
 
 ### Screenshots
 
