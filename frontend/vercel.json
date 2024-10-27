@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/api/(.*)",
+        "destination": "https://react-cms.onrender.com/api/$1"
+      }
+    ]
+  }
