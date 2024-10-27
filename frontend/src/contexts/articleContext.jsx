@@ -1,28 +1,11 @@
-import { createContext, useContext, useReducer, useEffect, useState, ReactNode } from "react";
-
-// 定义 Article 类型
-interface Article {
-  id: number; //从数据库获取，自增
-  title: string;
-  content: string;
-  cover: string; //封面
-  categoryId: number; //关联的栏目id
-  userId: number; //作者id
-}
-
-// 定义 Action 类型
-type Action =
-  | { type: "added"; article: Article }
-  | { type: "changed"; article: Article }
-  | { type: "deleted"; id: number }
-  | { type: "set"; articles: Article[] }; // 新增动作类型，初始化文章列表
+import { createContext, useContext, useReducer, useEffect, useState } from "react";
 
 // 创建上下文
-const ArticlesContext = createContext<{ articles: Article[], isLoading: boolean } | null>(null);
-const ArticlesDispatchContext = createContext<React.Dispatch<Action> | null>(null);
+const ArticlesContext = createContext(null);
+const ArticlesDispatchContext = createContext(null);
 
 // 定义 reducer
-function articlesReducer(articles: Article[], action: Action): Article[] {
+function articlesReducer(articles, action) {
   switch (action.type) {
     case "added": {
       if (!action.article.title || !action.article.content) {
@@ -48,7 +31,7 @@ function articlesReducer(articles: Article[], action: Action): Article[] {
 }
 
 // 提供者组件
-export function ArticlesProvider({ children }: { children: ReactNode }) {
+export function ArticlesProvider({ children }) {
   const [articles, dispatch] = useReducer(articlesReducer, []);
   const [isLoading, setIsLoading] = useState(true); // 添加加载状态
 
@@ -85,7 +68,7 @@ export function ArticlesProvider({ children }: { children: ReactNode }) {
 }
 
 // 导出Context参数 articles 和 isLoading
-export function useArticles(): { articles: Article[], isLoading: boolean } {
+export function useArticles() {
   const context = useContext(ArticlesContext);
   if (!context) {
     throw new Error("useArticles must be used within an ArticlesProvider");
@@ -94,7 +77,7 @@ export function useArticles(): { articles: Article[], isLoading: boolean } {
 }
 
 // 导出Context参数 dispatch，dispatch 作为一个执行方法，用于更新状态
-export function useArticlesDispatch(): React.Dispatch<Action> {
+export function useArticlesDispatch() {
   const context = useContext(ArticlesDispatchContext);
   if (!context) {
     throw new Error(

@@ -1,4 +1,4 @@
-import { useArticles } from "./../contexts/articleContext";
+import { useArticles } from "../contexts/articleContext";
 import { ArticleItem } from "./ArticleItem";
 import { Typography, CircularProgress, Box, Divider } from "@mui/material";
 
@@ -23,15 +23,24 @@ export default function ArticleList() {
 
   if (articles.length === 0) {
     return (
-      <Typography variant="h6" align="center">
-        没有找到任何文章。
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Typography variant="h6" align="center">
+          没有找到任何文章。
+        </Typography>
+      </Box>
     ); // 文章列表为空时显示的提示信息
   }
 
   return (
     <>
-    <Divider/>
+      <Divider />
       {articles.map((article) => (
         <ArticleItem key={article.id} article={article} />
       ))}

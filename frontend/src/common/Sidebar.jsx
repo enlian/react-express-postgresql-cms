@@ -26,7 +26,7 @@ export default function Sidebar() {
   };
 
   // 检查是否为当前路径
-  const isSelected = (path: string) => location.pathname === path;
+  const isSelected = (path) => location.pathname === path;
 
   return (
     <Box className="sidebar">
@@ -40,10 +40,9 @@ export default function Sidebar() {
         )}
       </Box>
 
-
       {/* 管理菜单 */}
       <List>
-      <Divider />
+        <Divider />
 
         <ListItem
           button

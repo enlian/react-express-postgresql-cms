@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { useArticlesDispatch } from "../contexts/articleContext";
-import { AuthContext } from "../contexts/AuthContext";
-import { CategoriesContext } from "../contexts/CategoriesContext";
-import { CategorySelector } from "./CategorySelector"; // 导入 CategorySelector
+import { useArticlesDispatch } from "../contexts/articleContext.js";
+import { AuthContext } from "../contexts/AuthContext.js";
+import { CategoriesContext } from "../contexts/CategoriesContext.js";
+import { CategorySelector } from "./CategorySelector.jsx"; // 导入 CategorySelector
 import {
   Button,
   Dialog,
@@ -16,14 +16,14 @@ import {
   Alert,
   FormControl,
 } from "@mui/material";
-import validateCoverUrl from "./../common/utils.js"
+import validateCoverUrl from "../common/utils.js";
 
 export default function AddArticle() {
   const [open, setOpen] = useState(false); // 控制弹窗打开状态
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [cover, setCover] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<number | "">(""); // 选中的 category
+  const [selectedCategory, setSelectedCategory] = useState(""); // 选中的 category
   const [errors, setErrors] = useState({
     title: "",
     content: "",
