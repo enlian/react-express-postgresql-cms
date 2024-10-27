@@ -29,14 +29,20 @@ const register = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // 创建新用户，随机生成邮箱
-        const newUser = await User.create({ name, email: generateRandomEmail(), password: hashedPassword });
+        const newUser = await User.create({ name, email: email, password: hashedPassword });
 
         // 创建 JWT token，payload 可包含用户ID和用户名
         const token = jwt.sign(
-            { userId: newUser.id, name: newUser.name },
+            { id: newUser.id, name: newUser.name },
             secretKey,
             { expiresIn: '365d' } // token 有效期1小时
         );
+
+        res.cookie("token", token, {
+            httpOnly: true, // 只能通过服务端访问，防止 XSS
+            secure: false, // 如果是 HTTPS，设置为 true
+            maxAge: 365 * 24 * 60 * 60 * 1000, // 1年
+          });
 
         // 返回 token 和注册成功信息
         res.status(201).json({ message: '注册成功', token, user: { id: newUser.id, name: newUser.name, email: newUser.email } });
