@@ -172,7 +172,7 @@ export function ArticleItem({ article }) {
         )}
 
         <ListItemText
-          sx={validateCoverUrl(article.cover) && { marginLeft: 2 }}
+          sx={validateCoverUrl(article.cover)?{ marginLeft: 2 }:{}}
           primary={article.title}
           secondary={article.content.slice(0, 100) + "..."}
         />
