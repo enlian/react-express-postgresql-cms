@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { useArticlesDispatch } from "../contexts/articleContext.js";
-import { AuthContext } from "../contexts/AuthContext.js";
-import { CategoriesContext } from "../contexts/CategoriesContext.js";
-import { CategorySelector } from "./CategorySelector.jsx"; // 导入 CategorySelector
+import { useArticlesDispatch } from "../contexts/articleContext";
+import { AuthContext } from "../contexts/AuthContext";
+import { CategoriesContext } from "../contexts/CategoriesContext";
+import { CategorySelector } from "./CategorySelector"; // 导入 CategorySelector
 import {
   Button,
   Dialog,
