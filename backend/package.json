@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "start": "pm2 start ./bin/www --name react-cms"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
