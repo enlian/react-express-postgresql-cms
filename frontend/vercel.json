@@ -1,8 +1,9 @@
 {
-    "rewrites": [
-      {
-        "source": "/api/(.*)",
-        "destination": "http://54.199.180.45:3000/api/$1"
-      }
-    ]
-  }
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "http://54.199.180.45:3000/api/$1"
+    },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
