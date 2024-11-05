@@ -13,12 +13,18 @@
 <img src="./frontend/screenshot/5.png" width="400"/><br/><br/>
 <img src="./frontend/screenshot/6.png" width="400"/><br/><br/>
 
+
 ### 技術スタック
 
-- **フロントエンド**: React.js, TypeScript, HTML, CSS, Material-UI
-- **バックエンド**: Node.js, Express.js, JWT (JSON Web Token) 認証
-- **データベース**: PostgreSQL
-- **開発ツール**: Vite（フロントエンドビルドツール）, Node Package Manager (npm)
+- **フロントエンド**: React.js、TypeScript、Material-UI を使用し、Vercel にデプロイ。
+
+- **バックエンド**: Node.js と Express.js を使用し、AWS EC2 にホスティング。
+
+- **データベース**: Vercel の PostgreSQL を使用。
+
+- **開発ツール**: Vite でビルド、npm で依存関係を管理。
+
+
 
 ### 主な機能
 
